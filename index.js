@@ -3,6 +3,8 @@ const express = require('express');//llamamos a express para crear el servidor
 const dbclient = require('./config/db');//llamamos al archivo db.js de la conexion de la base de datos
 const cors = require('cors');//llamar cors para manejar peticiones dsede el frontend
 
+const path = require('path');
+
 
 //importar rutas
 const test = require('./routes/test');
@@ -25,6 +27,10 @@ app.use(cors({
 //Creamos un middleware para manejar el JSON
 app.use(express.json());
 
+// Servir archivos estaticos desde la carpeta build de React
+app.use(express.static(path.join(__dirname, 'build')));
+
+
 app.get('/', (req, res) => {
     res.send('¡Bienvenido!, la aplicación esta funcionando correctamente... ');
 });
@@ -38,6 +44,13 @@ app.use('/api/clientes', clientes);
 app.use('/api/productos', productos);
 app.use('/api/cotizaciones', cotizaciones);
 app.use('/api/contadores', contadores);
+
+
+//ruta para manejar cualquier otra ruta que no sea parte de la API
+app.use('*', (req, res) => {
+    res.sendFile(path.json(__dirname, 'build', 'index.html'));
+});
+
 
 
 //sincronizar los modelos con la base de datos
