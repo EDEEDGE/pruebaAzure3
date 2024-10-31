@@ -37,7 +37,7 @@ app.use('/api/usuarios', usuarios);
 app.use('/api/clientes', clientes);
 app.use('/api/productos', productos);
 app.use('/api/cotizaciones', cotizaciones);
-app.use('/api/contadores', rutasContadores);
+app.use('/api/contadores', contadores);
 
 
 //sincronizar los modelos con la base de datos

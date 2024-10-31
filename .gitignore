@@ -18,3 +18,5 @@ Thumbs.db
 
 #archivos temporales
 temp/
+
+.env
