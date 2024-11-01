@@ -11,7 +11,7 @@ function Login() {
 
     const handleLoginClick = async () => {
         try {
-            const response = await axios.post('http://localhost:3002/api/usuarios/login', {
+            const response = await axios.post('https://otraprueba01-ayd2d5f8f7fse2ge.westus-01.azurewebsites.net/api/usuarios/login', {
                 nombre,
                 credenciales
             });
