@@ -48,7 +48,7 @@ app.use('/api/contadores', contadores);
 
 //ruta para manejar cualquier otra ruta que no sea parte de la API
 app.use('*', (req, res) => {
-    res.sendFile(path.json(__dirname, 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 
